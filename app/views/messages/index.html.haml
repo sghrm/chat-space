@@ -5,7 +5,7 @@
     %title Chat-Space
     %meta{:content => "authenticity_token", :name => "csrf-param"}/
     %meta{:content => "yy/0jtsyfhC6w+tkiLR4Pe2nxG4IJgn3M2GUArEZdHD8uY23Rp56rLxORJgUQY+qL1lKB4dhqC3bjNyeo2n1Dg==", :name => "csrf-token"}/
-    %link{:href => "/assets/application-c617cd3cc56ea5db583836527c3a19ec935e32bc3e23710c957791a1d7ac6c38.css", :media => "all", :rel => "stylesheet"}/
+    %link{:href => "/assets/modules/application.scss", :media => "all", :rel => "stylesheet"}/
     %script{:src => "/javascripts/application.js"}
   %body
     .notification
@@ -20,18 +20,18 @@
             %i.fa.fa-cog
       .chat-side__groups
         .chat-side__groups-list
-          %a{:href => "/groups/1246/messages"}
-            .chat-side__group
-              .chat-side__group-name
-                すが組
-              .chat-side__group-message
-                スプリント
+          / %a{:href => ""}
+          .chat-side__group
+            .chat-side__group-name
+              TEST GROUP
+            .chat-side__group-message
+              test message
     .chat-main
       .chat-main__header
         .chat-main__header--group.clearfix
           .chat-main__header--group-name
-            すが組
-          %a.chat-main__header--group-edit-btn{:href => "/groups/1246/edit"}
+            TEST GROUP
+          %a.chat-main__header--group-edit-btn{:href => ""}
             edit
         .chat-main__header-members
           MEMBER:
@@ -45,7 +45,7 @@
             .chat-main__message-time
               2018/09/01 16:27:34
             .chat-main__message-body
-              スプリント
+              test message
               %img.chat-main__message-body-image{:src => ""}/
           .chat-main__message.clearfix{"data-id" => "2124"}
             .chat-main__message-name
@@ -53,10 +53,10 @@
             .chat-main__message-time
               2018/09/01 16:27:25
             .chat-main__message-body
-              チーム開発
+              test message 2
               %img.chat-main__message-body-image{:src => ""}/
       .chat-main__footer
-        %form#new_message.chat-main__footer-form{"accept-charset" => "UTF-8", :action => "/groups/1246/messages", :enctype => "multipart/form-data", :method => "post"}
+        %form#new_message.chat-main__footer-form{"accept-charset" => "UTF-8", :action => "", :enctype => "multipart/form-data", :method => "post"}
           %input{:name => "utf8", :type => "hidden", :value => "✓"}/
           %input{:name => "authenticity_token", :type => "hidden", :value => "ZBEJZp+SlKoDXIw/7giKdpKFrht8g5nfd4q4juJcuSFTh3BfAj6QFgXRI8Ny/X3hUHsgcvPEOAWfZ/AS8Cw4Xw=="}/
           .chat-main__footer-body
