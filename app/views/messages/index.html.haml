@@ -1,0 +1,67 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Chat-Space
+    %meta{:content => "authenticity_token", :name => "csrf-param"}/
+    %meta{:content => "yy/0jtsyfhC6w+tkiLR4Pe2nxG4IJgn3M2GUArEZdHD8uY23Rp56rLxORJgUQY+qL1lKB4dhqC3bjNyeo2n1Dg==", :name => "csrf-token"}/
+    %link{:href => "/assets/modules/application.scss", :media => "all", :rel => "stylesheet"}/
+    %script{:src => "/javascripts/application.js"}
+  %body
+    .notification
+    .chat-side
+      .chat-side__user
+        .chat-side__user-content
+          .chat-side__user-name
+            sghrm
+          %a.chat-side__user--new-group{:href => "/groups/new"}
+            %i.fa.fa-pencil-square-o
+          %a.chat-side__user--edit-user{:href => "/users/edit"}
+            %i.fa.fa-cog
+      .chat-side__groups
+        .chat-side__groups-list
+          / %a{:href => ""}
+          .chat-side__group
+            .chat-side__group-name
+              TEST GROUP
+            .chat-side__group-message
+              test message
+    .chat-main
+      .chat-main__header
+        .chat-main__header--group.clearfix
+          .chat-main__header--group-name
+            TEST GROUP
+          %a.chat-main__header--group-edit-btn{:href => ""}
+            edit
+        .chat-main__header-members
+          MEMBER:
+          %i
+            sghrm
+      .chat-main__body
+        .chat-main__body--messages-list
+          .chat-main__message.clearfix{"data-id" => "2125"}
+            .chat-main__message-name
+              sghrm
+            .chat-main__message-time
+              2018/09/01 16:27:34
+            .chat-main__message-body
+              test message
+              %img.chat-main__message-body-image{:src => ""}/
+          .chat-main__message.clearfix{"data-id" => "2124"}
+            .chat-main__message-name
+              sghrm
+            .chat-main__message-time
+              2018/09/01 16:27:25
+            .chat-main__message-body
+              test message 2
+              %img.chat-main__message-body-image{:src => ""}/
+      .chat-main__footer
+        %form#new_message.chat-main__footer-form{"accept-charset" => "UTF-8", :action => "", :enctype => "multipart/form-data", :method => "post"}
+          %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+          %input{:name => "authenticity_token", :type => "hidden", :value => "ZBEJZp+SlKoDXIw/7giKdpKFrht8g5nfd4q4juJcuSFTh3BfAj6QFgXRI8Ny/X3hUHsgcvPEOAWfZ/AS8Cw4Xw=="}/
+          .chat-main__footer-body
+            %input#message_body.message{:name => "message[body]", :placeholder => "type a message", :type => "text"}/
+            %label.chat-file{:for => "message_image"}
+              %input#message_image.image{:name => "message[image]", :type => "file"}/
+              %i.fa.fa-image
+          %input.submit{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
