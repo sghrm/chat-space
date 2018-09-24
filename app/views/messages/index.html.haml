@@ -9,23 +9,7 @@
     %script{:src => "/javascripts/application.js"}
   %body
     .notification
-    .chat-side
-      .chat-side__user
-        .chat-side__user-content
-          .chat-side__user-name
-            sghrm
-          %a.chat-side__user--new-group{:href => "/groups/new"}
-            %i.fa.fa-pencil-square-o
-          %a.chat-side__user--edit-user{:href => "/users/edit"}
-            %i.fa.fa-cog
-      .chat-side__groups
-        .chat-side__groups-list
-          / %a{:href => ""}
-          .chat-side__group
-            .chat-side__group-name
-              TEST GROUP
-            .chat-side__group-message
-              test message
+    =render partial: "layouts/side_bar"
     .chat-main
       .chat-main__header
         .chat-main__header--group.clearfix
@@ -60,8 +44,8 @@
           %input{:name => "utf8", :type => "hidden", :value => "✓"}/
           %input{:name => "authenticity_token", :type => "hidden", :value => "ZBEJZp+SlKoDXIw/7giKdpKFrht8g5nfd4q4juJcuSFTh3BfAj6QFgXRI8Ny/X3hUHsgcvPEOAWfZ/AS8Cw4Xw=="}/
           .chat-main__footer-body
-            %input#message_body.message{:name => "message[body]", :placeholder => "type a message", :type => "text"}/
+            %input#message_body.message{name:  "message[body]", placeholder: "type a message", type: "text"}/
             %label.chat-file{:for => "message_image"}
-              %input#message_image.image{:name => "message[image]", :type => "file"}/
+              %input#message_image.image{name: "message[image]", type: "file"}/
               %i.fa.fa-image
-          %input.submit{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+          %input.submit{"data-disable-with": "Send", name:  "commit", type:  "submit", value: "Send"}/

@@ -27,7 +27,10 @@
 				display: inline-block;
 
 			}
-
+			.icon{
+				color: white;
+				font-size: 16px;
+			}
 			.chat-side__user--new-group{
 				color: $chat-side-name;
 				margin-left: 90px;
@@ -56,12 +59,13 @@
 
 				.chat-side__group-name{
 					font-size: 15px;
+					color: white;
 				}
 				.chat-side__group-message{
 					font-size: 11px;
+					color: white;
 				}
 			}
-
 		}
 	}
 }
