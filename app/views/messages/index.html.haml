@@ -22,30 +22,14 @@
           %i
             sghrm
       .chat-main__body
-        .chat-main__body--messages-list
-          .chat-main__message.clearfix{"data-id" => "2125"}
-            .chat-main__message-name
-              sghrm
-            .chat-main__message-time
-              2018/09/01 16:27:34
-            .chat-main__message-body
-              test message
-              %img.chat-main__message-body-image{:src => ""}/
-          .chat-main__message.clearfix{"data-id" => "2124"}
-            .chat-main__message-name
-              sghrm
-            .chat-main__message-time
-              2018/09/01 16:27:25
-            .chat-main__message-body
-              test message 2
-              %img.chat-main__message-body-image{:src => ""}/
+        =render @messages
       .chat-main__footer
-        %form#new_message.chat-main__footer-form{"accept-charset" => "UTF-8", :action => "", :enctype => "multipart/form-data", :method => "post"}
-          %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-          %input{:name => "authenticity_token", :type => "hidden", :value => "ZBEJZp+SlKoDXIw/7giKdpKFrht8g5nfd4q4juJcuSFTh3BfAj6QFgXRI8Ny/X3hUHsgcvPEOAWfZ/AS8Cw4Xw=="}/
+        .chat-main__footer-form
           .chat-main__footer-body
-            %input#message_body.message{name:  "message[body]", placeholder: "type a message", type: "text"}/
-            %label.chat-file{:for => "message_image"}
-              %input#message_image.image{name: "message[image]", type: "file"}/
-              %i.fa.fa-image
-          %input.submit{"data-disable-with": "Send", name:  "commit", type:  "submit", value: "Send"}/
+            = form_for [@group, @message] do |f|
+              = f.text_field :content, class: 'message' ,placeholder: 'type a message'
+              .chat-file
+                = f.label :image, class: 'image' do
+                  = fa_icon 'picture-o' , class: 'icon'
+                  = f.file_field  :image, class: 'fa'
+              = f.submit 'Send' , class: 'submit'
