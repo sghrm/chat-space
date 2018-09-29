@@ -1,4 +1,4 @@
-FctoryGirl.define do
+FactoryGirl.define do
 
 	factory :message do
 		content    Faker::Lorem.sentence
