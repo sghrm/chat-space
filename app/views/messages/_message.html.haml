@@ -1,16 +1,15 @@
-.chat-main__body
-  .chat-main__body--messages-list
-    .chat-main__message.clearfix
-      .chat-main__message-name
-        - @messages.each do |message|
-          =message.user.name
-      .chat-main__message-time
-        - @messages.each do |message|
-          = format_posted_time(message.created_at)
-      .chat-main__message-body
-        -@messages.each do |message|
-          - if message.content.present?
-            = message.content
-        %img.chat-main__message-body-image{:src => ""}/
-        / -@messages.each do |message|
-        /   = image_tag message.image.url, class : 'chat-main__message-body-image' if message.image.present?
+.chat-main__body--messages-list
+  .chat-main__message.clearfix
+    .chat-main__message-name
+      / - @messages.each do |message|
+      =message.user.name
+    .chat-main__message-time
+      / - @messages.each do |message|
+      = format_posted_time(message.created_at)
+    .chat-main__message-body
+      / -@messages.each do |message|
+      - if message.content.present?
+        = message.content
+      %img.chat-main__message-body-image{:src => ""}/
+      / -@messages.each do |message|
+      /   = image_tag message.image.url, class : 'chat-main__message-body-image' if message.image.present?
