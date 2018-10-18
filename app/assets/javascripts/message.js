@@ -38,11 +38,13 @@ $(function(){
 			var html = buildHTML(message);
 			$('.chat-main__body').append(html) 
 			$('.message').val('')
-			$('.submit').prop('disabled', false);
 			$('.chat-main__body').animate( {'scrollTop': $('.chat-main__body')[0].scrollHeight}, 'fast' );
 		})
 		.fail(function(){
 			alert("エラーが発生しました");
 		})
+		.always(function(){
+			$('.submit').prop('disabled', false);
+		});
 	})
 });
