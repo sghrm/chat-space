@@ -2,7 +2,7 @@ $(function(){
 	function buildHTML(message){
 		var html = `<div class = "chat-main__body--messages-list">
 						<div class = "chat-main__message clearfix">
-							<div class "upper__message">
+							<div class ="upper__message">
 								<div class ="upper__message-name">
 									${message.name}
 								</div>
@@ -10,11 +10,11 @@ $(function(){
 									${message.created_at}
 								</div>
 							</div>
-							<div class"lower__message">
+							<div class="lower__message">
 								<div class ="lower__message-content">
 									${message.content}
-									<img class="lower__message-image" src="${message.image}"> 
 								</div>
+								<img class="lower__message-image" src="${message.image}"> 
 							</div>
 						</div>
 					</div>`
