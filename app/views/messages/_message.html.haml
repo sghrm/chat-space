@@ -1,11 +1,12 @@
 .chat-main__body--messages-list
   .chat-main__message.clearfix
-    .chat-main__message-name
-      =message.user.name
-    .chat-main__message-time
-      = format_posted_time(message.created_at)
-    .chat-main__message-body
-      - if message.content.present?
-        = message.content
-      %img.chat-main__message-body-image
-      = image_tag message.image.url, class: 'chat-main__message-body-image' if message.image.present?
+    .upper__message
+      .upper__message-name
+        =message.user.name
+      .upper__message-time
+        = format_posted_time(message.created_at)
+    .lower__message
+      .lower__message-content
+        - if message.content.present?
+          = message.content
+      = image_tag message.image.url, class: 'lower__message-image' if message.image.present?

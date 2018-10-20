@@ -2,20 +2,19 @@ $(function(){
 	function buildHTML(message){
 		var html = `<div class = "chat-main__body--messages-list">
 						<div class = "chat-main__message clearfix">
-							<div class ="chat-main__message-name">
-								<p>
+							<div class "upper__message">
+								<div class ="upper__message-name">
 									${message.name}
-								</p>
-							</div>
-							<div class ="chat-main__message-time">
-								<p>
+								</div>
+								<div class ="upper__message-time">
 									${message.created_at}
-								</p>
+								</div>
 							</div>
-							<div class ="chat-main__message-body">
-								<p>
+							<div class"lower__message">
+								<div class ="lower__message-content">
 									${message.content}
-								</p>
+									<img class="lower__message-image" src="${message.image}"> 
+								</div>
 							</div>
 						</div>
 					</div>`
@@ -37,14 +36,14 @@ $(function(){
 		.done(function(message){
 			var html = buildHTML(message);
 			$('.chat-main__body').append(html) 
-			$('.message').val('')
+			$('.form__message').val('')
 			$('.chat-main__body').animate( {'scrollTop': $('.chat-main__body')[0].scrollHeight}, 'fast' );
 		})
 		.fail(function(){
 			alert("エラーが発生しました");
 		})
 		.always(function(){
-			$('.submit').prop('disabled', false);
+			$('.form__submit').prop('disabled', false);
 		});
 	})
 });
