@@ -1,5 +1,8 @@
 $(function(){
 	function buildHTML(message){
+		
+		var insertImage = message.image ? `<img class="lower__message-image" src="${message.image}">` : '';
+
 		var html = `<div class = "chat-main__body--messages-list">
 						<div class = "chat-main__message clearfix">
 							<div class ="upper__message">
@@ -14,7 +17,7 @@ $(function(){
 								<div class ="lower__message-content">
 									${message.content}
 								</div>
-								<img class="lower__message-image" src="${message.image}"> 
+								${insertImage} 
 							</div>
 						</div>
 					</div>`
@@ -34,10 +37,12 @@ $(function(){
 			contentType: false
 		})
 		.done(function(message){
+			console.log(message);
 			var html = buildHTML(message);
 			$('.chat-main__body').append(html) 
 			$('.form__message').val('')
 			$('.chat-main__body').animate( {'scrollTop': $('.chat-main__body')[0].scrollHeight}, 'fast' );
+			$('#new_message')[0].reset();
 		})
 		.fail(function(){
 			alert("エラーが発生しました");
