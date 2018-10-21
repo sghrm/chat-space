@@ -47,96 +47,97 @@
 
     		.chat-main__message.clearfix{
     			padding: 20px 0;
+                .upper__message{
+                    display: flex;
 
-    			.chat-main__message-name{
-    				color: #434A54;
-    				font-size: 16px;
-    				font-weight: bold;
-    				float: left;
-    			}
-    			.chat-main__message-time{
-    				color: #999;
-    				font-size: 12px;
-    				padding: 0 10px 10px;
-    				float: left;
-    			}
-                .chat-main__message-body{
-                    color: #434A54;
-                    clear: both;
-                        
-                    &:after{
+        			.upper__message-name{
+        				color: #434A54;
+        				font-size: 16px;
+        				font-weight: bold;
+        				float: left;
+        			}
+        			.upper__message-time{
+        				color: #999;
+        				font-size: 12px;
+        				padding: 0 10px 10px;
+        				float: left;
+        			}
+                }
+                .lower__message{
+                    margin-top: 10px;
+
+                    .lower__message-content{
+                        color: #434A54;
                         clear: both;
-                        content: '';
-                        display: block;
+                        font-size: 14px;
+                        margin-bottom: 10px;
+                        p{
+                            display: block;
+                            margin-block-start: 1em;
+                            margin-block-end: 1em;
+                            margin-inline-start: 0px;
+                            margin-inline-end: 0px;
+                        }
+                            
+                        &:after{
+                            clear: both;
+                            content: '';
+                            display: block;
+                        }
+                    }
+                    .lower__message-image{
+                        object-fit: contain;
+                        width: 200px;
                     }
                 }
     		}
     	}
     }
-    .chat-main__footer{
+    .form{
         height: 90px;
-        width: 100%;
-        background-color: $chat-main__footer;
-        float: right;
+        box-sizing: border-box;
+        background-color: #DDDDDD;
+        padding: 20px 50px 20px 40px;
 
-        .chat-main__footer-form{
-            margin: 0 40px;
-            padding: 0;
-            position: relative;
+        .form__message{
+            border: none;
+            box-sizing: border-box;
+            float: left;
+            height: 50px;
+            padding: 0 10px;
+            width: calc( 100% - 150px );
+            font-size: 16px;
+        }
 
-            .chat-main__footer-body{
-                position: relative;
-                display: block;
+        .form__mask{
+            background-color: #fff;
+            float: left;
+            height: 50px;
+            padding-right: 10px;
 
-                .message{
-                    height: 16px;
-                    width: calc( 100% - 130px );
-                    padding: 15px 10px;
-                    margin: 20px 0;
-                    border: none;
+            .form__mask__image{
+                font-size: 20px;
+                line-height: 50px;
+            
+                .icon{
+                    color: black;
                     font-size: 16px;
                 }
-
-                .chat-file{
-                    height: 50px;
-                    width: 40px;
-                    margin: 32px 130px 20px 0;
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-
-                    .image{
-                        position: absolute;
-                        top: 15px;
-                        left: 15px;
-                        display: none;
-                    }
-                    .icon{
-                        color: white;
-                        font-size: 16px;
-                    }
-                    .fa{
-                        color: #fff;
-                        display: inline-block;
-                        font: normal normal normal 14px/1 FontAwesome;
-                        font-size: inherit;
-                        text-rendering: auto;
-                    }
+                .hidden{
+                    display: none;
                 }
             }
-            .submit{
-                color: #fff;
-                width: 100px;
-                height: 50px;
-                text-align: center;
-                background-color: #38AEF0;
-                margin: 20px 0;
-                position: absolute;
-                top: 0;
-                right: 0;
-                border: none;
-                float: right;
-            }
+        }
+        .form__submit{
+            background-color: #38AEF0;
+            border: none;
+            color: #fff;
+            float: right;
+            font-size: 16px;
+            height: 50px;
+            text-align: center;
+            margin-left: 15px;
+            padding: 0 30px;
         }
     }
 }

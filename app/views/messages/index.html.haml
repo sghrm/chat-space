@@ -1,35 +1,23 @@
-!!!
-%html
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Chat-Space
-    %meta{:content => "authenticity_token", :name => "csrf-param"}/
-    %meta{:content => "yy/0jtsyfhC6w+tkiLR4Pe2nxG4IJgn3M2GUArEZdHD8uY23Rp56rLxORJgUQY+qL1lKB4dhqC3bjNyeo2n1Dg==", :name => "csrf-token"}/
-    %link{:href => "/assets/modules/application.scss", :media => "all", :rel => "stylesheet"}/
-    %script{:src => "/javascripts/application.js"}
-  %body
-    .notification
-    =render partial: "layouts/side_bar"
-    .chat-main
-      .chat-main__header
-        .chat-main__header--group.clearfix
-          .chat-main__header--group-name
-            TEST GROUP
-          %a.chat-main__header--group-edit-btn{:href => ""}
-            edit
-        .chat-main__header-members
-          MEMBER:
-          %i
-            sghrm
-      .chat-main__body
-        =render @messages
-      .chat-main__footer
-        .chat-main__footer-form
-          .chat-main__footer-body
-            = form_for [@group, @message] do |f|
-              = f.text_field :content, class: 'message' ,placeholder: 'type a message'
-              .chat-file
-                = f.label :image, class: 'image' do
-                  = fa_icon 'picture-o' , class: 'icon'
-                  = f.file_field  :image, class: 'fa'
-              = f.submit 'Send' , class: 'submit'
+.chat-side
+  =render partial: "layouts/side_bar"
+.chat-main
+  .chat-main__header
+    .chat-main__header--group.clearfix
+      .chat-main__header--group-name
+        TEST GROUP
+      %a.chat-main__header--group-edit-btn{:href => ""}
+        edit
+    .chat-main__header-members
+      MEMBER:
+      %i
+        sghrm
+  .chat-main__body
+    =render @messages
+  .form
+    = form_for [@group, @message] do |f| 
+      = f.text_field :content, class: 'form__message' ,placeholder: 'type a message' , id: 'new_message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = fa_icon 'picture-o' , class: 'icon'
+          = f.file_field  :image, class: 'hidden'
+      = f.submit 'Send' , class: 'form__submit'
