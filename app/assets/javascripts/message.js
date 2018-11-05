@@ -54,15 +54,15 @@ $(document).on('turbolinks:load', function(){
 
 	//自動更新
 	var interval = setInterval(function(){
-	var messageId = $('.chat-main__body--messages-list').last().attr('data-id')
-	var presentHTML = window.location.href
-	if (presentHTML.match(/\/groups\/\d+\/messages/)){
-	$.ajax({
-		type: 'GET',
-		url: presentHTML,
-		data:{ id: messageId },
-		dataType: 'json'
-	})
+		var messageId = $('.chat-main__body--messages-list').last().attr('data-id')
+		var presentHTML = window.location.href
+		if (presentHTML.match(/\/groups\/\d+\/messages/)){
+			$.ajax({
+			type: 'GET',
+			url: presentHTML,
+			data:{ id: messageId },
+			dataType: 'json'
+		})
 	.done(function(json){
 		var insertHTML = '';
 		json.forEach(function(message){
