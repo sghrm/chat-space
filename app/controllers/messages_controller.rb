@@ -3,11 +3,11 @@ class MessagesController < ApplicationController
 
 	def index
 		@message = Message.new
-		@group = Group.find(params[:group_id])
 		@messages = @group.messages.order(created_at: :ASC).includes(:user)
+
 		respond_to do |format|
 			format.html
-			format.json
+			format.json{ @new_messages = Message.where('id > ?', params[:id])}
 		end
 	end
 
