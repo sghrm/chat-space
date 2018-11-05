@@ -1,8 +1,8 @@
-.chat-main__body--messages-list
+.chat-main__body--messages-list{ "data-id": "#{message.id}"} 
   .chat-main__message.clearfix
     .upper__message
       .upper__message-name
-        =message.user.name
+        = message.user.name
       .upper__message-time
         = format_posted_time(message.created_at)
     .lower__message
