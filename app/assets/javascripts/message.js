@@ -1,9 +1,10 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
+
 	function buildHTML(message){
-		
+
 		var insertImage = message.image ? `<img class="lower__message-image" src="${message.image}">` : '';
 
-		var html = `<div class = "chat-main__body--messages-list">
+		var html = `<div class = "chat-main__body--messages-list" data-id="${message.id}">
 						<div class = "chat-main__message clearfix">
 							<div class ="upper__message">
 								<div class ="upper__message-name">
@@ -20,7 +21,7 @@ $(function(){
 								${insertImage} 
 							</div>
 						</div>
-					</div>`
+					</div>`;
 		return html;
 	}
 	//非同期通信
@@ -49,5 +50,31 @@ $(function(){
 		.always(function(){
 			$('.form__submit').prop('disabled', false);
 		});
+	});
+
+	//自動更新
+	var interval = setInterval(function(){
+	var messageId = $('.chat-main__body--messages-list').last().attr('data-id')
+	var presentHTML = window.location.href
+	if (presentHTML.match(/\/groups\/\d+\/messages/)){
+	$.ajax({
+		type: 'GET',
+		url: presentHTML,
+		data:{ id: messageId },
+		dataType: 'json'
 	})
+	.done(function(json){
+		var insertHTML = '';
+		json.forEach(function(message){
+			insertHTML += buildHTML(message);
+		});
+		$('.chat-main__body').append(insertHTML);
+		$('.chat-main__body').animate( {'scrollTop': $('.chat-main__body')[0].scrollHeight}, 'fast' );
+	})
+	.fail(function(data){
+		alert('自動更新に失敗しました');
+	});
+	} else {
+		clearInterval(interval);
+	}} , 5 * 1000 );
 });
